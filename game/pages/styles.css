@@ -1,0 +1,204 @@
+/* Corpo com imagem de fundo */
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif; /* Fonte moderna */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url('image/Sky.jpg') no-repeat center center fixed;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+    animation: fadeIn 1s ease-out; /* Animação de entrada */
+}
+
+/* Efeito parallax para o fundo */
+@keyframes parallax {
+    0% { background-position: 0 0; }
+    100% { background-position: 0 100%; }
+}
+
+body {
+    animation: parallax 30s ease infinite;
+}
+
+/* Contêiner principal com bordas translúcidas */
+.game-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border: 5px solid rgba(0, 0, 0, 0.8); /* Bordas translúcidas */
+    padding: 50px;
+    border-radius: 50px;
+    width: 1350px;
+    height: 600px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5), 0px 0px 50px rgba(255, 255, 255, 0.3); /* Sombras mais suaves e brilhantes */
+    position: relative;
+    overflow: hidden;
+    animation: fadeIn 1s ease-out; /* Animação de entrada */
+    transition: transform 0.3s ease-out, box-shadow 0.3s ease-out; /* Efeito ao passar o mouse */
+    margin: 50px; /* Distância do contêiner em relação à tela */
+    transform-origin: center; /* Zoom a partir do centro */
+}
+
+/* Efeito de borda quando o mouse passa por cima */
+.game-container:hover {
+    transform: scale(1.05) translateY(5px); /* Aumenta o tamanho do contêiner e move para baixo */
+    box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.7); /* Brilho mais forte ao passar o mouse */
+}
+
+/* Camada de imagem de fundo com opacidade */
+.game-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('image/city-background.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -1;
+    opacity: 0.85;
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* Efeito ao passar o mouse sobre o contêiner de fundo */
+.game-container:hover::before {
+    opacity: 1;
+}
+
+/* Animação de fade-in no carregamento */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Estilo para o título ou texto */
+h1, h2, h3 {
+    color: rgba(255, 255, 255, 0.9); /* Cor clara para os títulos */
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5); /* Sombra suave nos títulos */
+    font-size: 2em;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Efeito de hover no texto */
+h1:hover {
+    opacity: 0.7; /* Aparece mais suave quando o mouse passa por cima */
+    transform: translateY(-5px); /* Levanta o texto ao passar o mouse */
+}
+
+/* Adicionando partículas (opcional) */
+#particles-js {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2; /* Coloca as partículas atrás do conteúdo principal */
+}
+
+/* Efeito de borda animada */
+.game-container {
+    position: relative;
+    animation: fadeIn 1s ease-out, borderEffect 3s infinite alternate;
+}
+
+@keyframes borderEffect {
+    0% {
+        box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+    }
+    100% {
+        box-shadow: 0 0 25px rgba(255, 255, 255, 0.6);
+    }
+}
+
+/* Sombra interna do contêiner */
+.game-container {
+    box-shadow: inset 0 0 25px rgba(0, 0, 0, 0.7), 0px 4px 15px rgba(0, 0, 0, 0.5), 0px 0px 50px rgba(255, 255, 255, 0.3);
+}
+
+/* Adicionando um gradiente suave para o fundo */
+body {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url('image/Sky.jpg') no-repeat center center fixed;
+    background-size: cover;
+}
+
+#game {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+#cidade, #comprar-conhecimento {
+    background-color: #792323;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 45%;
+    margin: 10px 0;
+}
+
+h1, h2 {
+    color: #333;
+}
+
+button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+#mensagem-status {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.8); /* Fundo escuro */
+    color: #fff; /* Texto branco */
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    z-index: 9999;
+    opacity: 0; /* Invisível por padrão */
+    transition: opacity 0.3s ease; /* Transição suave */
+}
+
+/* Classe para exibir a mensagem */
+#mensagem-status.mostrar {
+    opacity: 1; /* Torna visível */
+}
+
+#tempo-restante {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+    z-index: 9999;
+}

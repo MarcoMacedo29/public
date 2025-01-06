@@ -1,0 +1,178 @@
+/* Estilos principais */
+body {
+  margin: 0;
+  overflow: hidden;
+  background-color: #87CEEB; /* Cor de fundo */
+}
+
+#game-container {
+  position: relative;
+  width: 100vw; /* Largura 100% da tela */
+  height: 100vh; /* Altura 100% da tela */
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  overflow: hidden;
+  
+  /* Definindo o fundo (imagem) que vai se mover */
+  background-image: url('background-image.jpg'); /* Imagem de fundo */
+  background-repeat: no-repeat;
+  background-size: cover; /* Cobre toda a tela */
+  background-position: 0 0; /* Posição inicial do fundo */
+}
+
+#player {
+  position: absolute;
+  width: 128px; /* Tamanho do player */
+  height: 128px; /* Tamanho do player */
+  background-repeat: no-repeat;
+  animation-duration: 0.2s;
+  animation-timing-function: ease-in-out;
+  bottom: 75px; /* Ajuste a distância do fundo da tela, 20px acima do fundo */
+  left: 45px; /* Coloca o jogador no canto esquerdo */
+}
+
+/* Estilos para o Menu de Pausa */
+.pause-menu {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7); /* Fundo transparente para dar destaque */
+  color: white;
+  display: none; /* Inicialmente escondido */
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  z-index: 10; /* Certifique-se de que o menu ficará sobre o jogo */
+}
+
+.pause-menu button {
+  margin: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #333;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.pause-menu button:hover {
+  background-color: #555;
+}
+
+
+#machine {
+  display: none;
+  position: absolute; /* Para usar transform */
+  width: 150px; /* Ajuste conforme necessário */
+  height: auto;
+  bottom: 70px; /* Alinha com o chão */
+  background: url('machine-sprite.png') no-repeat;
+  background-size: contain; /* Ajusta o tamanho do sprite */
+}
+
+#rain {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw; /* Largura igual à tela */
+  height: 100vh; /* Altura igual à tela */
+  background-image: url('rain.png'); /* Spritesheet da chuva */
+  background-repeat: repeat;
+  background-size: cover; /* Ajusta o tamanho da imagem para cobrir o elemento */
+  animation: rainAnimation 0.5s steps(6) infinite; /* Animação com 6 frames */
+  z-index: 5; /* Coloque abaixo de outros elementos, se necessário */
+  display: none; /* Inicialmente oculto */
+}
+
+@keyframes rainAnimation {
+  from {
+    background-position: 0 0; /* Início da animação */
+  }
+  to {
+    background-position: 0 -600%; /* Final da animação (assume 6 frames verticais) */
+  }
+}
+
+#snow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw; /* Largura igual à tela */
+  height: 100vh; /* Altura igual à tela */
+  background-image: url('snowing.png'); /* Spritesheet da neve */
+  background-repeat: repeat;
+  background-size: cover; /* Ajusta o tamanho da imagem para cobrir o elemento */
+  animation: snowAnimation 1s steps(8) infinite; /* Animação com 8 frames */
+  z-index: 5; /* Coloque abaixo de outros elementos, se necessário */
+  display: none; /* Inicialmente oculto */
+}
+
+@keyframes snowAnimation {
+  from {
+    background-position: 0 0; /* Início da animação */
+  }
+  to {
+    background-position: 0 -800%; /* Final da animação (assume 8 frames verticais) */
+  }
+}
+
+#thunder {
+  position: absolute;
+  top: 0;
+  left: 30px;
+  width: 110vw; /* Largura igual à tela */
+  height: 110vh; /* Altura igual à tela */
+  background-image: url('lightning2.png'); /* Spritesheet do trovão */
+  background-repeat: repeat;
+  background-size: cover; /* Ajusta o tamanho da imagem para cobrir o elemento */
+  animation: thunderAnimation 1.5s steps(6) infinite; /* Animação com 6 frames */
+  z-index: 10; /* Certifique-se de que está no topo, acima de outros elementos */
+  opacity: 0; /* Inicialmente invisível */
+  display: none; /* Inicialmente oculto */
+}
+
+@keyframes thunderAnimation {
+  0% {
+    opacity: 0;
+    background-position: 0 0; /* Quadro inicial */
+  }
+  50% {
+    opacity: 1; /* Flash do trovão */
+  }
+  100% {
+    opacity: 0;
+    background-position: 0 -600%; /* Último quadro do spritesheet */
+  }
+}
+
+/* Estilo básico para a hiperligação */
+a {
+  color: #007BFF;        /* Altera a cor do texto do link */
+  text-decoration: none; /* Remove o sublinhado */
+}
+
+#mensagem {
+  position: fixed; 
+  top: 30%;         
+  left: 50%;        
+  transform: translate(-50%, -50%); 
+  background-color: rgba(0, 0, 0, 0.7); 
+  color: white;    
+  padding: 20px;     
+  border-radius: 15px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+  text-align: center; 
+  width: 60%;        
+  max-width: 600px;  
+}
+
+#mensagem h2 {
+  font-size: 32px;      
+  font-weight: bold;   
+  margin-bottom: 20px;  
+  text-transform: uppercase; 
+  font-family: 'Arial', sans-serif; 
+}

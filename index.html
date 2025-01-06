@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Climate Quest</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Adicionando o áudio de fundo -->
+    <audio id="background-music" loop>
+        <source src="audio/Main-Menu.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+
+    <!-- Efeitos sonoros -->
+    <audio id="click-sound" preload="auto">
+        <source src="audio/Effects.mp3" type="audio/mp3">
+    </audio>
+    <audio id="hover-sound" preload="auto">
+        <source src="audio/Effects.mp3" type="audio/mp3">
+    </audio>
+
+    <!-- Tela principal do menu -->
+    <div id="main-menu" class="menu-container">
+        <h1>Climate Quest: Path to Sustainability</h1>
+        <div class="menu-options">
+            <div class="menu-item" data-index="0" onclick="startGame()">PLAY</div>
+            <div class="menu-item" data-index="1" onclick="openSettings()">SETTINGS</div>
+            <div class="menu-item" data-index="3" onclick="openRanking()">RANKING</div>
+            <div class="menu-item" data-index="2" onclick="quitGame()">QUIT</div>
+        </div>
+        <div id="arrow"></div>
+
+      <!-- Botão Learn More no canto inferior esquerdo -->
+      <div id="learn-more" class="learn-more" onclick="openLearnMore()">LEARN MORE</div>
+    </div>
+
+    <!-- Tela de mensagens do Learn More -->
+    <div id="learn-more-message" class="hidden">
+        <h2>Climate Quest</h2>
+        <p>Climate Quest is inspired by real challenges facing communities worldwide. Rising temperatures, extreme weather, and resource shortages affect millions every year. This game highlights the importance of sustainability, resource management, and collective action.</p>
+        <p>Did you know? Cities consume 78% of the world's energy and produce over 60% of greenhouse gases. Your actions, big or small, can make a difference.</p>
+        <div class="learn-more-buttons">
+            <button onclick="closeLearnMore()">Close</button>
+            <button onclick="showGameControls()">Next</button>
+        </div>
+    </div>
+
+    <!-- Modal de Ranking -->
+    <div id="ranking-modal" class="modal hidden">
+        <h1>RANKING</h1>
+        <ul id="ranking-list"></ul>
+        <button onclick="closeModal()">Fechar</button>
+    </div>
+
+    <!-- Tela de controles do jogo -->
+    <div id="game-controls-message" class="hidden">
+        <h2>Game Controls</h2>
+        <p><strong>Arrow Keys:</strong> Navigate through menus or move your character in the game;</p>
+        <p><strong>Space:</strong> Enable the player to jump;</p>
+        <p><strong>Enter:</strong> Select an option or interact with objects;</p>
+        <p><strong>Esc:</strong> Pause the game or return to the previous menu.</p>
+        <div class="learn-more-buttons">
+            <button onclick="BacktoLearnMore()">Back</button>
+            <button onclick="closeGameControls()">Close</button>
+        </div>
+    </div>
+
+    <!-- Tela de configurações -->
+    <div id="settings-screen" class="menu-container hidden">
+        <h1>SETTINGS</h1>
+        <div class="settings-options">
+            <div class="setting-item">
+                <span>Main Volume</span>
+                <input type="range" min="0" max="100" value="100" class="slider" id="mainVolume">
+            </div>
+            <div class="setting-item">
+                <span>Sound Effects Volume</span>
+                <input type="range" min="0" max="100" value="100" class="slider" id="effectsVolume">
+            </div>
+            <div class="setting-item">
+                <span>Music Volume</span>
+                <input type="range" min="0" max="100" value="100" class="slider" id="musicVolume">
+            </div>
+        </div>
+        <div class="back-button" onclick="returnToMainMenu()"> BACK</div>
+    </div>
+
+    <!-- Tela de transição -->
+    <div id="transition-screen" class="hidden">
+    <h2>WARNING</h2>
+    <p>A máquina do tempo colapsou!</p>
+    <p>Tu, tens de impedir que o mundo desabe, para tal terás de gerir os recursos da tua cidade e adquirir conhecimento para reparares a máquina do tempo.</p>
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

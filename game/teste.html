@@ -1,0 +1,33 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Climate Quest</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="game-container">
+    <div id="mensagem">
+      <h2>Descola-te até à máquina</h2></div>
+    <img id="machine" src="machine.png" alt="Machine" />
+    <div id="player"></div>
+    <img id="machine"></div>
+    <div id="rain"></div>
+    <div id="snow"></div>
+    <div id="thunder"></div>
+    <audio id="rainAudio" src="raining-lightning.mp3" loop></audio>
+    <!-- Menu de Pausa (agora dentro do game-container) -->
+    <div id="pauseMenu" class="pause-menu">
+      <h2>Pausado</h2>
+      <button onclick="resumeGame()">Continuar</button>
+      <button onclick="restartGame()">Reiniciar</button>
+      <button onclick="exitGame()">Sair</button>
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

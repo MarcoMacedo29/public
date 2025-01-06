@@ -1,0 +1,367 @@
+/* Corpo com imagem de fundo */
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: url('image/Sky.jpg') no-repeat center center fixed;
+    background-size: cover;
+}
+
+/* Contêiner principal com bordas translúcidas */
+.menu-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border: 5px solid rgba(0, 0, 0, 0.8); /* Bordas translúcidas */
+    padding: 50px;
+    border-radius: 50px;
+    background: rgba(255, 255, 255, 0.9); /* Fundo branco translúcido */
+    width: 1350px;
+    height: 600px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.hidden {
+    display: none;
+}
+
+h1 {
+    font-size: 32px;
+    margin-bottom: 50px;
+    font-weight: bold;
+}
+
+/* Opções do menu principal */
+.menu-options {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.menu-item {
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    position: relative;
+}
+
+#arrow {
+    position: absolute;
+    font-size: 24px;
+    font-weight: bold;
+    color: #007BFF;
+    transition: top 0.2s ease;
+    pointer-events: none;
+    left: calc(50% - 130px); /* Ajusta para posicionar próximo às palavras */
+}
+
+/* Estilos para a tela de níveis */
+.levels-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    border-radius: 5px;
+}
+
+.level {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 120px;
+    height: 150px;
+    border: 2px solid rgba(0, 0, 0, 0.8); /* Bordas translúcidas */
+    border-radius: 15px;
+    position: relative;
+    text-align: center;
+    font-weight: bold;
+    background: rgba(255, 255, 255, 0.9); /* Fundo branco translúcido */
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.level.locked {
+    background-color: rgba(224, 216, 216, 0.8);
+    cursor: not-allowed;
+}
+
+.level.locked .lock-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 18px;
+}
+
+.level.unlocked:hover {
+    transform: scale(1.1);
+    background-color: #e6f7ff;
+}
+
+.level-number {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.level-description {
+    font-size: 14px;
+    line-height: 1.2;
+}
+
+/* Botão "BACK" na parte inferior esquerda */
+.back-button {
+    position: absolute;
+    bottom: 80px;  /* Sobe o botão um pouco */
+    left: 80px;    /* Mantém a posição à esquerda */
+    padding: 10px 20px;
+    font-size: 14px;
+    color: #000000;  /* Cor do texto */
+    border: 3px solid rgba(0, 0, 0, 0.8); /* Bordas translúcidas */
+    background-color: transparent; /* Fundo transparente */
+    border-radius: 10px;  /* Bordas arredondadas */
+    cursor: pointer;
+    text-align: center;
+    box-shadow: none;  /* Retira o efeito de sombra */
+}
+
+.back-button:hover {
+    transform: scale(1.1);
+    background-color: #e6f7ff;
+}
+
+/* Estilos específicos para a tela de configurações */
+.settings-options {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    width: 600px;
+}
+
+.setting-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 5px 0;
+}
+
+.slider {
+    width: 300px;
+    height: 10px;
+    background: #404040;
+    border-radius: 5px;
+    appearance: none;
+    outline: none;
+}
+
+.slider::-webkit-slider-thumb {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background: #000000;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.slider::-webkit-slider-thumb:hover {
+    background-color: #327fd1;
+}
+
+/* Estilos para o botão Learn More */
+.learn-more {
+    position: absolute;
+    bottom: 80px;  /* Sobe o botão um pouco */
+    left: 80px;    /* Mantém a posição à esquerda */
+    padding: 10px 20px;
+    font-size: 14px;
+    color: #000000;  /* Cor do texto */
+    border: 3px solid rgba(0, 0, 0, 0.8); /* Bordas translúcidas */
+    background-color: transparent; /* Fundo transparente */
+    border-radius: 10px;  /* Bordas arredondadas */
+    cursor: pointer;
+    text-align: center;
+    box-shadow: none;  /* Retira o efeito de sombra */
+}
+
+.learn-more:hover {
+    transform: scale(1.1);
+    background-color: #e6f7ff;
+}
+
+/* Estilo para a tela de mensagens */
+#learn-more-message {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #226d51; /* Cor sólida, sem transparência */
+    color: rgb(0, 0, 0);
+    padding: 20px;
+    border-radius: 15px;
+    width: 80%;
+    max-width: 600px;
+    text-align: center;
+}
+
+#learn-more-message button {
+    margin-top: 1px;
+    padding: 10px 20px;
+    background-color: #226d51;
+    color: white;
+    font-size: 16px;
+    border: 3px solid black;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+#learn-more-message button:hover {
+    background-color: #353232;
+}
+
+/* Estilo para a tela de mensagens do Game Controls */
+#game-controls-message {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #226d51; /* Cor sólida, sem transparência */
+    color: rgb(0, 0, 0);
+    padding: 20px;
+    border-radius: 15px;
+    width: 80%;
+    max-width: 600px;
+    text-align: center;
+}
+
+#game-controls-message p {
+    text-align: left;
+}
+
+#game-controls-message button {
+    margin-top: 1px;
+    padding: 10px 20px;
+    background-color: #226d51;
+    color: white;
+    font-size: 16px;
+    border: 3px solid black;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+#game-controls-message button:hover {
+    background-color: #353232;
+}
+
+.learn-more-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.learn-more-buttons button {
+    flex: 0;
+    margin: 2px 20px;
+    padding: 10px 20px;
+    background-color: #000000;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.learn-more-buttons button:hover {
+    background-color: #353232;
+}
+
+/* Tela de transição */
+#transition-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* Fundo preto semi-transparente */
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    z-index: 1000;
+}
+
+#transition-screen.hidden {
+    display: none; /* Oculta a tela quando não estiver ativa */
+}
+
+.modal {
+    display: none; /* Modal inicialmente invisível */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 80%;
+    max-width: 500px;
+}
+
+.modal-content {
+    text-align: center;
+}
+
+.modal-content h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.modal-content ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+}
+
+.modal-content ul li {
+    padding: 5px 0;
+    font-size: 18px;
+}
+
+.modal-content button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.modal-content button:hover {
+    background-color: #0056b3;
+}
+
+.modal.hidden {
+    display: none;
+}
+
+.modal:not(.hidden) {
+    display: block;
+}
+
+  
